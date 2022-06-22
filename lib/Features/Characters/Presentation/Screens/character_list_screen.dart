@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'character_list_view.dart';
 
-class CharacterListScreen extends StatelessWidget {
-  const CharacterListScreen({Key? key}) : super(key: key);
+class ActorsListScreen extends StatelessWidget {
+  const ActorsListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Characters')),
+        appBar: AppBar(title: const Text('Actors')),
         resizeToAvoidBottomInset: false,
-        body: const CharacterListView(),
+        body: const ActorsListView(),
       );
 }

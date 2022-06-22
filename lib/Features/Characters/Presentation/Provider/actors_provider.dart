@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:squadio_task/Features/Characters/Domain/Entities/actor.dart';
+import 'package:squadio_task/Features/Characters/Domain/Entities/actor_images.dart';
 
 import '../../Domain/Usecases/get_actors_details.dart';
 import '../../Domain/Usecases/get_all_actors.dart';
@@ -18,9 +19,11 @@ class ActorsProvider extends ChangeNotifier {
     return actors;
   }
 
-  // getActorsImages(int actorId) async {
-  //   emit(LoadingActorsState());
-  //   final doneOrFail = await getActorsDetailsUsecase(actorId);
-  //   emit(LoadedActorImagesState(images: doneOrFail));
-  // }
+  List<ActorImages> images = [];
+  Future<List<ActorImages>> getActorsImages(int actorId) async {
+    images.clear();
+    images = await getActorsDetailsUsecase(actorId);
+    notifyListeners();
+    return images;
+  }
 }

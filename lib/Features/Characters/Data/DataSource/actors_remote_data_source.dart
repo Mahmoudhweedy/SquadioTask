@@ -22,8 +22,7 @@ class ActorsRemoteDataSourceImpl implements ActorRemoteDataSource {
           "$baseUrl/person/popular?api_key=$apiKey&language=en-US&page=$pageKey"),
       headers: {"Content-Type": "application/json"},
     );
-    print(
-        "$baseUrl/person/popular?api_key=$apiKey&language=en-US&page=$pageKey");
+
     if (response.statusCode == 200) {
       final decodedJson = json.decode(response.body);
       final List<ActorModel> actorModels = decodedJson['results']
@@ -39,12 +38,12 @@ class ActorsRemoteDataSourceImpl implements ActorRemoteDataSource {
   @override
   Future<List<ActorImagesModel>> getActorImages(int actorId) async {
     final response = await http.get(
-      Uri.parse("$baseUrl/posts/$actorId"),
+      Uri.parse("$baseUrl/person/$actorId/images?api_key=$apiKey"),
       headers: {"Content-Type": "application/json"},
     );
 
     if (response.statusCode == 200) {
-      final decodedJson = json.decode(response.body) as List;
+      final decodedJson = json.decode(response.body)['profiles'] as List;
       final List<ActorImagesModel> actor =
           decodedJson.map((e) => ActorImagesModel.fromJson(e)).toList();
       return actor;

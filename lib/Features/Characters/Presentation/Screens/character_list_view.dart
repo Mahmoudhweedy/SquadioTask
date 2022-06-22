@@ -7,14 +7,14 @@ import 'package:squadio_task/Features/Characters/Presentation/Provider/actors_pr
 import '../../Domain/Entities/actor.dart';
 import '../Widgets/character_list_item.dart';
 
-class CharacterListView extends StatefulWidget {
-  const CharacterListView({Key? key}) : super(key: key);
+class ActorsListView extends StatefulWidget {
+  const ActorsListView({Key? key}) : super(key: key);
 
   @override
-  State<CharacterListView> createState() => _CharacterListViewState();
+  State<ActorsListView> createState() => _ActorsListViewState();
 }
 
-class _CharacterListViewState extends State<CharacterListView> {
+class _ActorsListViewState extends State<ActorsListView> {
   late ActorsProvider actorsProvider;
   final PagingController<int, Actor> _pagingController =
       PagingController(firstPageKey: 1);

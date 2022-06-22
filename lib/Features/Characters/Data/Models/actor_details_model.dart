@@ -12,11 +12,11 @@ class ActorImagesModel extends ActorImages {
 
   factory ActorImagesModel.fromJson(Map<String, dynamic> json) {
     return ActorImagesModel(
-      aspectRatio: json['aspectRatio'],
+      aspectRatio: json['aspect_ratio'],
       height: json['height'],
-      filePath: json['filePath'],
-      voteAverage: json['voteAverage'],
-      voteCount: json['voteCount'],
+      filePath: json['file_path'],
+      voteAverage: json['vote_average'],
+      voteCount: json['vote_count'],
       width: json['width'],
     );
   }
